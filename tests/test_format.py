@@ -13,6 +13,6 @@ def test_simple_formatter(eml_path: Path):
     current_file = eml_path.with_suffix(".current.md")
     result = format_markdown(parse_eml(eml_path), formatter="simple")
     if not test_file.exists():
-        test_file.write_text(result)
-    current_file.write_text(result)
-    assert test_file.read_text() == result
+        test_file.write_text(result, encoding="utf-8")
+    current_file.write_text(result, encoding="utf-8")
+    assert test_file.read_text(encoding="utf-8") == result

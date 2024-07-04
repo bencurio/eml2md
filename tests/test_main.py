@@ -22,7 +22,7 @@ def test_simple_formatter(eml_path: Path):
     ):
         main()
 
-    result = current_file.read_text()
+    result = current_file.read_text(encoding="utf-8")
     if not test_file.exists():
-        test_file.write_text(result)
-    assert test_file.read_text() == current_file.read_text()
+        test_file.write_text(result, encoding="utf-8")
+    assert test_file.read_text(encoding="utf-8") == current_file.read_text(encoding="utf-8")
