@@ -33,7 +33,8 @@ def main():
     args: Args = parser.parse_args()
 
     args.output.write_text(
-        format_markdown(parse_eml(args.input), formatter=args.format)
+        format_markdown(parse_eml(args.input), formatter=args.format),
+        encoding="utf-8"
     )
 
 
